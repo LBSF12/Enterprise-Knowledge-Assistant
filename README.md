@@ -28,46 +28,24 @@ The assistant will answer questions using company documents while running comple
 * Build an enterprise portfolio project
 
 
+## Project Progress
 
+### ✅ Completed
+- Docker Desktop installed
+- Ollama installed
+- Phi-4 model downloaded
+- Open WebUI configured
+- Git repository created
+- GitHub repository created
+- Docker Compose initialized
+- Sample enterprise documents created
 
+### 🚧 In Progress
+- Docker Compose architecture
 
-\## Project Progress
-
-
-
-\### ✅ Completed
-
-\- Docker Desktop installed
-
-\- Ollama installed
-
-\- Phi-4 model downloaded
-
-\- Open WebUI configured
-
-\- Git repository created
-
-\- GitHub repository created
-
-\- Docker Compose initialized
-
-\- Sample enterprise documents created
-
-
-
-\### 🚧 In Progress
-
-\- Docker Compose architecture
-
-
-
-\### ⏳ Next
-
-\- Add Qdrant vector database
-
-\- Generate embeddings
-
-\- Ingest documents
-
-\- Query enterprise knowledge
+### ⏳ Next
+- Add Qdrant vector database
+- Generate embeddings
+- Ingest documents
+- Query enterprise knowledge
 
