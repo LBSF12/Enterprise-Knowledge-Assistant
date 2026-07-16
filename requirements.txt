@@ -1,0 +1,8 @@
+qdrant-client
+langchain
+langchain-community
+langchain-ollama
+pypdf
+python-docx
+openpyxl
+tqdm
