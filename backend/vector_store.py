@@ -43,7 +43,12 @@ def create_collection():
     print(f"Collection '{COLLECTION_NAME}' created successfully.")
 
 
-def store_chunk(text: str, embedding: list):
+def store_chunk(
+    text: str,
+    embedding: list,
+    source: str,
+    department: str,
+):
     """
     Store one chunk and its embedding in Qdrant.
     """
@@ -55,8 +60,26 @@ def store_chunk(text: str, embedding: list):
                 id=str(uuid4()),
                 vector=embedding,
                 payload={
-                    "text": text
-                }
+                    "text": text,
+                    "source": source,
+                    "department": department,
+                },
             )
-        ]
-    )    
+        ],
+    )   
+
+
+def recreate_collection():
+    """
+    Delete the collection if it exists,
+    then create it again.
+    """
+
+    collections = client.get_collections().collections
+    names = [c.name for c in collections]
+
+    if COLLECTION_NAME in names:
+        client.delete_collection(COLLECTION_NAME)
+        print(f"Collection '{COLLECTION_NAME}' deleted.")
+
+    create_collection()

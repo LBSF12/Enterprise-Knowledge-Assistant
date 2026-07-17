@@ -8,12 +8,14 @@ Purpose:
 from backend.embeddings import generate_embedding
 from backend.vector_store import client, COLLECTION_NAME
 
-from qdrant_client.models import Filter
 
-
-def search_documents(question: str, limit: int = 3):
+def search_documents(
+        question: str, 
+        limit: int = 3,
+        threshold: float = 0.60,
+    ):
     """
-    Search Qdrant for the most relevant document chunks.
+    Search the vector database using semantic similarity.
     """
 
     question_embedding = generate_embedding(question)
@@ -21,7 +23,22 @@ def search_documents(question: str, limit: int = 3):
     results = client.query_points(
         collection_name=COLLECTION_NAME,
         query=question_embedding,
-        limit=limit
+        limit=limit,
     )
 
-    return results.points
+    search_results = []
+
+    for point in results.points:
+
+        if point.score >= threshold:
+
+            search_results.append(
+                {
+                    "score": point.score,
+                    "text": point.payload["text"],
+                    "source": point.payload["source"],
+                    "department": point.payload["department"],
+                }
+            )
+
+    return search_results

@@ -7,7 +7,7 @@ Purpose:
 from backend.chunker import split_text
 from backend.embeddings import generate_embedding
 from backend.vector_store import (
-    create_collection,
+    recreate_collection,
     store_chunk,
 )
 from pathlib import Path
@@ -19,6 +19,8 @@ documents = Path("sample_documents")
 pdf_files = list(documents.rglob("*.pdf"))
 
 print(f"Found {len(pdf_files)} PDF files.\n")
+
+recreate_collection()
 
 for pdf in pdf_files:
 
@@ -32,6 +34,11 @@ for pdf in pdf_files:
         
         embedding = generate_embedding(chunk)
         
-        store_chunk(chunk, embedding)
-        
+        store_chunk(
+            text=chunk,
+            embedding=embedding,
+            source = pdf.name,
+            department=pdf.parent.name
+        )
+
     print("Document stored successfully.")

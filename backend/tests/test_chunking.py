@@ -22,8 +22,17 @@ for page in reader.pages:
 
 chunks = split_text(text)
 
-print(f"Chunks created: {len(chunks)}")
+#print(f"Chunks created: {len(chunks)}")
 
-print()
+#print()
 
-print(chunks[0])
+#print(chunks[0])
+
+print(f"Chunks created: {len(chunks)}\n")
+
+for i, chunk in enumerate(chunks, start=1):
+    print("=" * 60)
+    print(f"Chunk {i}")
+    print("=" * 60)
+    print(chunk)
+    print()
