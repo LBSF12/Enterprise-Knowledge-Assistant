@@ -11,6 +11,7 @@ from backend.rag import ask_company_assistant
 #question = "How many annual leave days do employees receive?"
 question = "Who approves leave requests?"
 
+
 print("\nQUESTION")
 print(question)
 
