@@ -6,3 +6,5 @@ pypdf
 python-docx
 openpyxl
 tqdm
+fastapi
+uvicorn[standard]
