@@ -1,16 +1,27 @@
+"""
+loaders.py
+
+Purpose:
+    Read PDF documents from the sample_documents folder.
+"""
+
 from pathlib import Path
 from pypdf import PdfReader
 
-DOCUMENT_FOLDER = Path("sample_documents")
 
-for file in DOCUMENT_FOLDER.rglob("*.pdf"):
+def load_pdf(pdf_path: Path):
+    """
+    Read a PDF and return its text.
+    """
 
-    print("=" * 50)
-    print(f"Reading: {file.name}")
+    reader = PdfReader(pdf_path)
 
-    reader = PdfReader(file)
+    text = ""
 
-    print(f"Pages: {len(reader.pages)}")
     for page in reader.pages:
-        text = page.extract_text()
-        print(text)
+        extracted = page.extract_text()
+
+        if extracted:
+            text += extracted + "\n"
+
+    return text

@@ -1,6 +1,15 @@
+"""
+test_chunking.py
+
+Purpose:
+    Demonstrates how to split extracted document text into chunks
+    before generating embeddings.
+"""
+
 from pathlib import Path
 from pypdf import PdfReader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+from backend.chunker import split_text
 
 pdf = Path("sample_documents/HR/Leave_Policy.pdf")
 
@@ -11,14 +20,10 @@ text = ""
 for page in reader.pages:
     text += page.extract_text()
 
-splitter = RecursiveCharacterTextSplitter(
-    chunk_size=300,
-    chunk_overlap=50
-)
+chunks = split_text(text)
 
-chunks = splitter.split_text(text)
+print(f"Chunks created: {len(chunks)}")
 
-print(f"Number of chunks: {len(chunks)}")
+print()
 
-print("\nFirst chunk:\n")
 print(chunks[0])
