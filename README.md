@@ -104,7 +104,7 @@ README.md
 - Git repository
 - GitHub repository
 
-![Docker Containers]<img src="docs/images/docker-containers.png" width="700">
+![Docker Containers](docs/images/docker-containers.png)
 
 ## Local AI
 
