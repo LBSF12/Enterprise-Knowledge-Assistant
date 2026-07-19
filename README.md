@@ -96,135 +96,171 @@ README.md
 
 # Features Implemented
 
-## Environment Setup
+## Infrastructure
 
 - Docker Desktop installed
 - Docker Compose configured
-- Python virtual environment
-- Git repository
-- GitHub repository
-
+- Ollama running locally
+- Phi-4 model downloaded
+- Open WebUI configured
+- Qdrant Vector Database running
 ![Docker Containers](docs/images/docker-containers.png)
 
-## Local AI
+## Swagger API
 
-- Ollama installed
-- Phi-4 downloaded
-- Open WebUI configured
-- Local AI tested successfully
-
-## Knowledge Base
-
-- Sample enterprise PDF documents
-- Department-based folder organization
-- Automatic PDF discovery
+![Swagger API](docs/images/swagger-api.png)
 
 ## Document Processing
 
-- PDF loader
-- Text extraction
+- PDF document loader
 - Recursive text chunking
-- Chunk overlap
+- Embedding generation
+- Vector storage in Qdrant
+- Metadata storage (department & source)
 
-## Embeddings
+## Retrieval-Augmented Generation (RAG)
 
-- Local embedding generation
-- nomic-embed-text model
-- Embedding validation
-
-## Vector Database
-
-- Qdrant running in Docker
-- Collection creation
-- Collection recreation
-- Vector storage
-- Metadata storage
-
-Stored metadata:
-
-- Document text
-- Source document
-- Department
-
-## Retrieval
-
-- Semantic similarity search
-- Configurable similarity threshold
-- Retrieval evaluation
-- Search scoring
-- Context generation
-
-## Local LLM
-
-- Phi-4 integration
-- Ollama connection
+- Semantic search
+- Context building
 - Prompt generation
-- LLM communication
+- Phi-4 integration
+- End-to-end RAG pipeline
+
+## Backend API
+
+- FastAPI project created
+- REST API endpoint (`POST /ask`)
+- Swagger/OpenAPI documentation
+- Request & Response models using Pydantic
+- CORS configuration
+
+## Frontend
+
+- Frontend project structure created
+- Local frontend web server
+- HTML/CSS application skeleton
 
 ---
 
-# Project Progress
+# Project Structure
 
-| Phase | Status |
-|--------|--------|
-| Docker Setup | ✅ |
-| Ollama Setup | ✅ |
-| Open WebUI | ✅ |
-| GitHub Repository | ✅ |
-| Docker Compose | ✅ |
-| Sample Documents | ✅ |
-| PDF Loader | ✅ |
-| Text Chunking | ✅ |
-| Embeddings | ✅ |
-| Qdrant | ✅ |
-| Document Ingestion | ✅ |
-| Semantic Retrieval | ✅ |
-| Context Builder | ✅ |
-| Phi-4 Integration | ✅ |
-| Complete RAG Pipeline | 🚧 |
-| FastAPI | ⏳ |
-| Chat Interface | ⏳ |
-| SharePoint Integration | ⏳ |
-| Azure Deployment | ⏳ |
+```text
+Enterprise-Knowledge-Assistant/
+
+backend/
+    api.py
+    rag.py
+    retrieval.py
+    embeddings.py
+    chunker.py
+    loaders.py
+    llm.py
+    vector_store.py
+    ingest.py
+    models.py
+
+frontend/
+    index.html
+    style.css
+    script.js
+
+sample_documents/
+
+docker-compose.yml
+
+requirements.txt
+
+README.md
+```
 
 ---
 
 # Learning Objectives
 
-- AI Engineering
+This project is designed to learn:
+
 - Retrieval-Augmented Generation (RAG)
-- Docker & Docker Compose
-- Python Backend Development
 - Vector Databases
-- Prompt Engineering
-- Local AI Models
-- Enterprise Software Architecture
+- Embedding Models
+- FastAPI
+- REST APIs
+- Docker
+- Enterprise AI Architecture
 - Git & GitHub
+- AI Engineering Best Practices
+
+---
+
+# Current Status
+
+✅ Complete document ingestion pipeline
+
+✅ Semantic retrieval
+
+✅ Local LLM integration (Phi-4)
+
+✅ FastAPI backend
+
+✅ Swagger API documentation
+
+✅ Frontend project initialized
+
+🚧 Connecting frontend to backend API
 
 ---
 
 # Screenshots
 
-Screenshots will be added as the project progresses.
+## Project Architecture
+
+(Add later)
+
+---
+
+## Docker Containers
+
+(Add screenshot)
+
+---
+
+## Open WebUI
+
+(Add screenshot)
+
+---
+
+## Qdrant Dashboard
+
+(Add screenshot)
+
+---
+
+## Swagger API
+
+(Add screenshot)
+
+---
+
+## Enterprise Chat Interface
+
+(Coming Soon)
 
 ---
 
 # Future Improvements
 
-- Web chat interface
-- FastAPI REST API
+- Upload documents through the web interface
+- Conversation history
+- Streaming AI responses
+- Source citations
+- Microsoft Entra ID Authentication
 - SharePoint Online integration
 - Azure Blob Storage integration
-- Authentication
-- Conversation memory
-- Source citation
-- Streaming responses
-- Azure AI Search
-- Azure OpenAI
+- Azure deployment
 - Microsoft Teams integration
 
 ---
 
 # Author
 
-Built as part of an AI Engineering learning journey focused on building real enterprise AI solutions from scratch.
+Built as part of an AI Engineering learning journey focused on enterprise Retrieval-Augmented Generation (RAG) systems.
