@@ -15,5 +15,5 @@ venv/
 
 .venv/
 *.db
-.agents/skills/graphify
-.claude/skills/graphify
+.agents/
+.claude/
