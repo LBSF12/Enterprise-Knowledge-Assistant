@@ -61,19 +61,6 @@ FUTURE ROADMAP
 - SharePoint Online and Azure Blob Storage integration
 - Azure deployment and Microsoft Teams integration
 
----
+# Author
 
-TASK 1: Write a LinkedIn post (150–250 words) announcing this project. Make it sound like a genuine learning milestone from an aspiring AI engineer — enthusiastic but not hype-y, specific about what was actually built (name the real modules/tech), and end with a soft call-to-engagement (question or invite to check the repo). Include 4-6 relevant hashtags.
-
-TASK 2: Write a detailed technical documentation article (suitable for a personal blog or dev.to), structured as:
-1. Introduction & motivation
-2. Architecture overview (with the flow diagram described above)
-3. Deep dive into each backend module (what it does, why it's separated this way, key design decisions)
-4. The ingestion pipeline walkthrough
-5. The RAG query flow walkthrough (question → retrieval → prompt → LLM → answer)
-6. Frontend and API integration
-7. Docker/infrastructure setup
-8. Lessons learned
-9. What's next (roadmap)
-
-Write in a clear, technical-but-approachable tone, as if teaching another developer how the system works, not just listing features.
+Built as part of an AI Engineering learning journey focused on enterprise Retrieval-Augmented Generation (RAG) systems.
