@@ -36,10 +36,13 @@ app.add_middleware(
 )
 def ask_question(request: QuestionRequest):
 
-    answer = ask_company_assistant(
-        request.question
-    )
+    result = ask_company_assistant(request.question)
 
     return AnswerResponse(
-        answer=answer
+        answer=result["answer"],
+        sources=result["sources"],
     )
+    
+
+
+    return AnswerResponse(answer=answer)

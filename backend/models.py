@@ -12,5 +12,12 @@ class QuestionRequest(BaseModel):
     question: str
 
 
+class Source(BaseModel):
+    file: str
+    department: str
+    score: float
+
+
 class AnswerResponse(BaseModel):
     answer: str
+    sources: list[Source]

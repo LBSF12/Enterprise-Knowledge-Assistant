@@ -35,25 +35,44 @@ def build_context(question: str):
 
 def ask_company_assistant(question: str):
     """
-    Full RAG pipeline:
-    - retrieve relevant chunks
-    - build prompt
-    - ask Phi-4
-    - return final answer
+    Full RAG pipeline.
     """
 
-    context = build_context(question)
+    results = search_documents(question)
 
-    if not context:
-        return "I could not find relevant information in the company knowledge base."
+    if not results:
+        return {
+            "answer": "I could not find relevant information in the company knowledge base.",
+            "sources": []
+        }
+
+    context = ""
+
+    sources = []
+
+    for result in results:
+
+        context += (
+            f"Department: {result['department']}\n"
+            f"Source: {result['source']}\n\n"
+            f"{result['text']}\n"
+            "\n-----------------------------\n\n"
+        )
+
+        sources.append(
+            {
+                "file": result["source"],
+                "department": result["department"],
+                "score": round(result["score"], 3)
+            }
+        )
 
     prompt = f"""
 You are the Enterprise Knowledge Assistant.
 
-Use ONLY the information provided in the context below.
+Use ONLY the information below.
 
-If the answer is not present in the context, say:
-'I could not find that information in the company knowledge base.'
+If the answer is not present, say you cannot find it.
 
 Context:
 {context}
@@ -66,4 +85,7 @@ Answer:
 
     answer = ask_llm(prompt)
 
-    return answer
+    return {
+        "answer": answer,
+        "sources": sources
+    }

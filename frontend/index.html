@@ -2,42 +2,70 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Enterprise Knowledge Assistant</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
 
 <body>
 
-    <div class="container">
+<div class="app">
 
-        <h1>Enterprise Knowledge Assistant</h1>
+    <header class="app-header">
 
-        <p>
-            Ask questions about company documents.
-        </p>
+        <div class="avatar avatar-assistant">
+            🤖
+        </div>
 
-        <textarea
-            id="question"
-            placeholder="Type your question here..."
-        ></textarea>
+        <div>
 
-        <button id="askButton">
-            Ask
-        </button>
+            <h1>Enterprise Knowledge Assistant</h1>
 
-        <h2>Answer</h2>
+            <div class="status">
 
-        <div id="answer">
+                <div class="status-dot"></div>
+
+                Connected to Local AI
+
+            </div>
 
         </div>
 
-    </div>
+    </header>
 
-    <script src="script.js"></script>
+    <main
+        id="chat"
+        class="chat">
+
+    </main>
+
+    <footer class="input-bar">
+
+        <input
+            id="question"
+            type="text"
+            placeholder="Ask something about your company..."
+        >
+
+        <button id="askButton">
+
+            ➤
+
+        </button>
+
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 
