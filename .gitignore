@@ -15,3 +15,5 @@ venv/
 
 .venv/
 *.db
+.agents/
+.claude/
